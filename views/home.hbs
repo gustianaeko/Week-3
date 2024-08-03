@@ -129,6 +129,55 @@
         </div>
       </div>
 
+      <div
+        class="myProjects"
+        style="background-color: rgb(248, 249,250); margin: 40px; text-align: center; padding: 40px"
+      >
+        <h1>My Project</h1>
+
+        <!-- My Projects -->
+        <div
+          class="myProjects"
+          style="background-color: rgb(248, 249,250); padding-top; 10px;"
+        >
+          <div class="container my-5">
+            <div class="row">
+              {{#each data}}
+                <!-- Start of Card -->
+                <div class="col-md-4 mb-4 mt-4">
+                  <div class="card">
+                    <img
+                      src="./assets/images/red.jpg"
+                      class="card-img-top"
+                      alt="Project Image"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <a
+                          href="home"
+                          style="text-decoration: none; color: black; font-weight: bold;"
+                        >
+                          {{this.title}}
+                          {{this.startDate}}
+                        </a>
+                      </h5>
+                      <p>Durasi : 3 Bulan</p>
+                      <p class="card-text">
+                        {{this.contect}}
+                      </p>
+                      <div class="d-flex justify-content-end">
+                        <button class="btn btn-secondary me-3">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+
+        </div>
+      </div>
     </main>
 
     <script

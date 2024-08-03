@@ -13,23 +13,33 @@ app.use("/assets", express.static("assets"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const projects = [];
+
 //routes
 const renderHome = (req, res) => {
-  res.render("home");
+  res.render("home", { data: [...projects] });
 };
 
-const renderAddProject = (req, res) => {
-  res.render("project");
+const renderProject = (req, res) => {
+  res.render("project", { projects });
 };
 
-const renderContactMe = (req, res) => {
+const createProject = (req, res) => {
+  // console.log(req.body);
+  projects.push(req.body);
+
+  res.redirect("/home");
+};
+
+const renderContact = (req, res) => {
   res.render("contact");
 };
 
 app.get("/", renderHome);
 app.get("/home", renderHome);
-app.get("/project", renderAddProject);
-app.get("/contact", renderContactMe);
+app.get("/project", renderProject);
+app.post("/project", createProject);
+app.get("/contact", renderContact);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
