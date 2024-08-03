@@ -11,23 +11,25 @@ app.use("/assets", express.static("assets"));
 
 //body parser (parse from string to obj)
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //routes
-const renderIndex = (req, res) => {
-  res.render("index");
+const renderHome = (req, res) => {
+  res.render("home");
 };
 
 const renderAddProject = (req, res) => {
-  res.render("addProject");
+  res.render("project");
 };
 
 const renderContactMe = (req, res) => {
-  res.render("contactMe");
+  res.render("contact");
 };
 
-app.get("/", renderIndex);
-app.get("/addProject", renderAddProject);
-app.get("/contactMe", renderContactMe);
+app.get("/", renderHome);
+app.get("/home", renderHome);
+app.get("/project", renderAddProject);
+app.get("/contact", renderContactMe);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
