@@ -72,6 +72,16 @@ const editProject = (req, res) => {
   res.redirect("/home");
 };
 
+const deleteProject = (req, res) => {
+  const id = req.params.projectId;
+
+  const index = projects.findIndex((project) => project.id == id);
+
+  projects.splice(index, 1);
+
+  res.redirect("/home");
+};
+
 const renderContact = (req, res) => {
   res.render("contact");
 };
@@ -84,6 +94,7 @@ app.post("/project", createProject);
 app.get("/projectDetail/:projectId", renderProjectDetail);
 app.get("/editProject/:projectId", renderFormEditProject);
 app.post("/editProject/:projectId", editProject);
+app.get("/deleteProject/:projectId", deleteProject);
 app.get("/contact", renderContact);
 
 app.listen(port, () => {
