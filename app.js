@@ -25,10 +25,24 @@ const renderProject = (req, res) => {
 };
 
 const createProject = (req, res) => {
-  // console.log(req.body);
-  projects.push(req.body);
+  const newProject = {
+    id: projects.length + 1,
+    title: req.body.title,
+    content: req.body.content,
+    createdAt: new Date().getFullYear(),
+  };
 
+  projects.push(newProject);
   res.redirect("/home");
+};
+
+const renderProjectDetail = (req, res) => {
+  const id = req.params.projectId;
+  const projectById = projects.find((project) => project.id == id);
+
+  console.log(projectById);
+
+  res.render("projectDetail", { projectById });
 };
 
 const renderContact = (req, res) => {
@@ -39,6 +53,7 @@ app.get("/", renderHome);
 app.get("/home", renderHome);
 app.get("/project", renderProject);
 app.post("/project", createProject);
+app.get("/projectDetail/:projectId", renderProjectDetail);
 app.get("/contact", renderContact);
 
 app.listen(port, () => {
