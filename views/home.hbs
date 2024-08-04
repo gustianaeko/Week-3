@@ -168,9 +168,36 @@
                       <p class="card-text" style="text-align: justify;">
                         {{this.content}}
                       </p>
+                      <div class="projectIcons" style="margin: 10px;">
+                        <i
+                          class="fa-brands fa-node fa-lg"
+                          style="color: blue;"
+                        ></i>
+                        <i
+                          class="fa-brands fa-js fa-lg"
+                          style="color: blue;"
+                        ></i>
+                        <i
+                          class="fa-brands fa-react fa-lg"
+                          style="color: blue;"
+                        ></i>
+                        <i
+                          class="fa-brands fa-vuejs fa-lg"
+                          style="color: blue;"
+                        ></i>
+                      </div>
                       <div class="d-flex justify-content-end">
-                        <button class="btn btn-secondary me-3">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-secondary me-3"><a
+                            href="/editProject/{{this.id}}"
+                            style="text-decoration: none;
+                            color: white"
+                          >Edit</a></button>
+                        <button class="btn btn-danger"><a
+                            href="/deleteProject/{{this.id}}"
+                            style="text-decoration: none;
+                            color: white;"
+                          >
+                            Delete</a></button>
                       </div>
                     </div>
                   </div>

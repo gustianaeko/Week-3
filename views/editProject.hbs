@@ -44,7 +44,7 @@
               <a class="nav-link me-3" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="project">Add
+              <a class="nav-link active" aria-current="page" href="project">Edit
                 Project</a>
             </li>
           </ul>
@@ -60,10 +60,10 @@
     <form
       style="display: flex; flex-direction: column; align-items: center"
       class="formTest"
-      action="/project"
+      action="/editProject/{{projectById.id}}"
       method="post"
     >
-      <h1 class="text-center mt-5 mb-5">ADD MY PROJECT</h1>
+      <h1 class="text-center mt-5 mb-5">UPDATE PROJECT</h1>
 
       <div style="width: 500px">
         <div class="mb-3">
@@ -73,7 +73,7 @@
             class="form-control"
             id="title"
             name="title"
-            required
+            value="{{projectById.title}}"
           />
         </div>
 
@@ -85,7 +85,7 @@
               class="form-control"
               id="startDate"
               name="startDate"
-              required
+              value="{{projectById.startDate}}"
             />
           </div>
           <div class="form-group col-md-5 mt-3">
@@ -95,7 +95,7 @@
               class="form-control"
               id="endDate"
               name="endDate"
-              required
+              value="{{projectById.endDate}}"
             />
           </div>
         </div>
@@ -107,8 +107,10 @@
             id="content"
             style="height: 100px; min-width: 100%;"
             name="content"
-            required
-          ></textarea>
+            value="{{projectById.content}}"
+          >
+            {{projectById.content}}
+          </textarea>
         </div>
 
         <!-- technologies -->
@@ -166,7 +168,7 @@
           <input type="file" class="form-control" id="image" name="image" />
         </div>
         <div class="d-flex justify-content-end">
-          <button type="submit" class="btn btn-secondary">Submit</button>
+          <button type="submit" class="btn btn-secondary">Update Project</button>
         </div>
       </div>
     </form>
